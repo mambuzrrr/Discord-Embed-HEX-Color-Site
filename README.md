@@ -4,3 +4,5 @@ You can open this directly from your PC by putting all three files in the same f
 You can revise and improve this code at any time. Have fun with it!
 
 ![Preview](img/live-view.png)
+
+![Preview](img/live-view-update.png)
