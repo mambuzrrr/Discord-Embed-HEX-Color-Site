@@ -24,6 +24,26 @@
         </div>
       </div>
     </div>
+    <!-- Discord Webhook -->
+    <form id="discordForm" class="mt-4">
+      <div class="form-group">
+        <label for="webhookURL">Discord Webhook URL:</label>
+        <input type="text" class="form-control" id="webhookURL" placeholder="Enter Webhook URL" required>
+      </div>
+      <div class="form-group">
+        <label for="embedTitle">Embed Title:</label>
+        <input type="text" class="form-control" id="embedTitle" placeholder="Enter Embed Title" required>
+      </div>
+      <div class="form-group">
+        <label for="embedDescription">Embed Description:</label>
+        <input type="text" class="form-control" id="embedDescription" placeholder="Enter Embed Description" required>
+      </div>
+      <div class="form-group">
+        <label for="embedColor">Embed Color (Hex Code):</label>
+        <input type="text" class="form-control" id="embedColor" placeholder="Enter Embed Color (Hex Code)" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
   </div>
   <script src="brejax.js"></script>
 </body>
