@@ -77,3 +77,64 @@ function rgbToHex(rgb) {
     const hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     return hex.toLowerCase();
 }
+
+// NEW: Added Discord Webhook for a Direct Test.
+const discordForm = document.getElementById("discordForm");
+  discordForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const webhookURL = document.getElementById("webhookURL").value;
+    const embedTitle = document.getElementById("embedTitle").value;
+    const embedDescription = document.getElementById("embedDescription").value;
+    const embedColor = document.getElementById("embedColor").value;
+
+    const embed = {
+      title: embedTitle,
+      description: embedDescription,
+      color: parseInt(embedColor.replace("#", ""), 16)
+    };
+
+    sendEmbedToDiscord(webhookURL, embed);
+  });
+
+function sendEmbedToDiscord(webhookURL, embed) {
+  fetch(webhookURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      embeds: [embed]
+    })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Success:", data);
+  })
+  .catch(error => {
+    console.error("Error:", error);
+  });
+}
+
+function saveDataToSessionStorage(webhookURL, embed) {
+  const savedData = {
+    webhookURL: webhookURL,
+    embed: embed
+  };
+  sessionStorage.setItem("discordData", JSON.stringify(savedData));
+}
+
+function loadStoredData() {
+  const savedDataString = sessionStorage.getItem("discordData");
+  if (savedDataString) {
+    const savedData = JSON.parse(savedDataString);
+    document.getElementById("webhookURL").value = savedData.webhookURL;
+    document.getElementById("embedTitle").value = savedData.embed.title;
+    document.getElementById("embedDescription").value = savedData.embed.description;
+    document.getElementById("embedColor").value = savedData.embed.color;
+  }
+}
