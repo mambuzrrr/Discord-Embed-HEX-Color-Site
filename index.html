@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord Color Codes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Colors Function  -->
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Discord Color Codes & Live View</h1>
+    <div id="colorPicker" class="border rounded-lg p-3 d-flex justify-content-center align-items-center flex-wrap hidden">
+    </div>
+    <div id="colorCode" class="mt-4 text-center font-weight-bold hidden"></div>
+    <!-- Embed Live View -->
+    <div id="testView" class="mt-4 hidden">
+      <div class="discord-embed">
+        <div class="discord-embed-left-strip" style="background-color: #7289da;"></div>
+        <div class="discord-embed-right-content">
+          <div class="discord-embed-title">Live Test View</div>
+          <div class="discord-embed-description">Discord HEX Color Code Developed by Brejax</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="brejax.js"></script>
+</body>
+</html>
